@@ -1,0 +1,10 @@
+<div class='wiki-content poi-form' file='$file' protection='$protection'>
+    <p>$i18n.getText("com.mesilat.poi-forms.poi-form.loading")</p>
+    <script>
+        define('poi-form/$pageId/$file',['ajs','jquery'], function(AJS,$){
+            return {
+                $body
+            };
+        });
+    </script>
+</div>

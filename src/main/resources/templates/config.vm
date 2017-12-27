@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>$i18n.getText("com.mesilat.poi-forms.config.title")</title>
+        <meta name="decorator" content="atl.admin">
+        $webResourceManager.requireResource("com.mesilat.poi-forms:resources")
+    </head>
+    <body>
+
+    <div id="poi-forms-config">
+        <h2>$i18n.getText("com.mesilat.poi-forms.config.reflist.title")</h2>
+        <ul id="poi-forms-config-reflist">
+            <li>$i18n.getText("com.mesilat.poi-forms.config.reflist.empty")</li>
+        </ul>
+
+        <form id="poi-forms-config-refdata" class="aui">
+            <fieldset class="group">
+                <div class="form-group">
+                    <label for="poi-forms.config.refdata.group">$i18n.getText("com.mesilat.poi-forms.config.refdata.group.label")</label>
+                    <input id="poi-forms-config-refdata-group" type="text" name="poi-forms.config.refdata.group"/>
+                    <div class="description">$i18n.getText("com.mesilat.poi-forms.config.refdata.group.desc")</div>
+                </div>
+                <div class="form-group">
+                    <label for="poi-forms.config.refdata.list">$i18n.getText("com.mesilat.poi-forms.config.refdata.list.label")</label>
+                    <textarea class="textarea" id="poi-forms-config-refdata-list" name="poi-forms.config.refdata.list" rows="10"></textarea>
+                    <div class="description">$i18n.getText("com.mesilat.poi-forms.config.refdata.list.desc")</div>
+                </div>
+            </fieldset>
+        </form>
+
+        <form class="aui">
+            <div class="form-group buttons-container">
+                <div class="buttons">
+                    <input id="poi-forms-config" class="button submit" type="submit" value="$i18n.getText("com.mesilat.poi-forms.config.submit.label")">
+                </div>
+            </div>
+        </form>
+    </div>
+
+  </body>
+</html>

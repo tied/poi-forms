@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+        <param name="plugin-icon">images/pluginIcon.png</param>
+        <param name="plugin-logo">images/pluginLogo.png</param>
+        <param name="configure.url">/plugins/poi-forms/poi-settings.action</param>
+    </plugin-info>
+
+    <resource type="i18n" name="i18n" location="/i18n/poi-forms"/>
+    <resource type="download" name="images/" location="/images"/>
+
+    <web-resource key="resources" name="Web Resources">
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+        <resource type="download" name="poi-forms.css" location="/css/poi-forms.css"/>
+        <resource type="download" name="common.js"     location="/js/common.js"/>
+        <resource type="download" name="poi-forms.js"  location="/js/poi-forms.js"/>
+        <resource type="download" name="images/"       location="/images"/>
+        <context>poi-forms</context>
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        <dependency>com.atlassian.auiplugin:aui-flag</dependency>
+    </web-resource>
+    <web-resource key="macro-extension" name="Macro Editor Extension">
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+        <resource type="download" name="poi-forms.css" location="/css/poi-forms.css"/>
+        <resource type="download" name="common.js" location="/js/common.js"/>
+        <resource type="download" name="macro.js" location="/js/macro.js"/>
+        <resource type="download" name="images/" location="/images"/>
+        <context>macro-browser</context>
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        <dependency>com.atlassian.auiplugin:aui-flag</dependency>
+        <dependency>confluence.editor.actions:editor-macro-browser</dependency>
+    </web-resource>
+    <web-resource key="macro-resources" name="POI Form Macro Resources">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        <dependency>com.atlassian.auiplugin:aui-flag</dependency>
+
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+        <transformation extension="soy">
+            <transformer key="soyTransformer">
+                <functions>com.atlassian.confluence.plugins.soy:soy-core-functions</functions>
+            </transformer>
+        </transformation>
+
+        <resource type="download" name="poi-forms.css"           location="/css/poi-forms.css"/>
+        <resource type="download" name="common.js"               location="/js/common.js"/>
+        <!--resource type="download" name="languages.min.js"        location="/js/languages.min.js"/-->
+        <resource type="download" name="numeral.js"              location="/js/numeral.js"/>
+        <resource type="download" name="autocomplete.js"         location="/js/autocomplete.js"/>
+        <resource type="download" name="poi-client.js"           location="/js/poi-client.js"/>
+        <resource type="download" name="poi-forms.js"            location="/js/poi-forms.js"/>
+        <resource type="download" name="images/"                 location="/images"/>
+
+        <context>poi-macro</context>
+    </web-resource>
+    <web-resource key="settings-resources" name="POI Form Settings Resources">
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+
+        <resource type="download" name="settings.js"             location="/js/settings.js"/>
+
+        <context>poi-forms-settings</context>
+    </web-resource>
+
+    <rest key="rest" path="/poi-forms" version="1.0" name="Rest Resources">
+        <description>Provides REST resources for POI Forms</description>
+    </rest>
+
+    <!--servlet key="config-servlet" i18n-name-key="com.mesilat.poi-forms.config.name" name="Configuration Servlet" class="com.mesilat.poi.ConfigServlet">
+        <description key="com.mesilat.poi-forms.config.desc">Provides for POI Forms setup</description>
+        <url-pattern>/poiforms/config</url-pattern>
+    </servlet-->
+
+    <xhtml-macro key="poi-form" name="poi-form" i18n-name-key="com.mesilat.poi-forms.poi-form.name" class="com.mesilat.poi.PoiFormMacro" state="enabled"
+                 icon="/download/resources/com.mesilat.poi-forms/images/pluginLogo.png">
+        <resource type="i18n" name="i18n" location="i18n/poi-forms"/>
+        <category name="reporting"/>
+        <category name="external-content"/>
+        <description key="com.mesilat.poi-forms.poi-form.desc">Use this macro to place a POI form to your Confluence page</description>
+        <parameters>
+            <parameter name="file" type="string" required="true"/>
+            <parameter name="protection" type="boolean"/>
+        </parameters>
+    </xhtml-macro>
+
+    <xwork key="poi-actions" name="POI Forms Actions">
+        <package name="poi-forms" extends="default" namespace="/plugins/poi-forms">
+            <default-interceptor-ref name="validatingStack"/>
+            <action name="poi-settings" class="com.mesilat.poi.SettingsAction">
+                <result name="success" type="velocity">/templates/poi-settings.vm</result>
+            </action>
+        </package>
+    </xwork>
+
+    <servlet key="config" class="com.mesilat.poi.web.DemoSpaceCreateServlet" name="Demo Space Create Servlet">
+        <url-pattern>/poi/demo-space-create</url-pattern>
+    </servlet>
+</atlassian-plugin>

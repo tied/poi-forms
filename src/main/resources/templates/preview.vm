@@ -1,0 +1,4 @@
+#requireResourcesForContext("poi-forms")
+<div class='wiki-content poi-form'>
+<p>$i18n.getText("com.mesilat.poi-forms.poi-form.preview")</p>
+</div>

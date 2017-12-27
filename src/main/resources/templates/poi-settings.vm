@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>$generalUtil.htmlEncode($pageTitle)</title>
+    <meta name="decorator" content="atl.admin">
+    #requireResourcesForContext("poi-forms-settings")
+</head>
+<body>
+    <p>
+    <form class="aui poi-settings">
+        <div class="field-group">
+            <label for="max-files">$i18n.getText("com.mesilat.poi-forms.settings.maxFiles.label")</label>
+            <input class="text medium-field" type="text" name="max-files" placeholder="64">
+            <div class="description">$i18n.getText("com.mesilat.poi-forms.settings.maxFiles.desc")</div>
+        </div>
+        <div class="field-group">
+            <label for="max-bytes">$i18n.getText("com.mesilat.poi-forms.settings.maxBytes.label")</label>
+            <input class="text medium-field" type="text" name="max-bytes" placeholder="256M">
+            <div class="description">$i18n.getText("com.mesilat.poi-forms.settings.maxBytes.desc")</div>
+        </div>
+
+        <div class="buttons-container">
+            <div class="buttons">
+                <input class="button submit" type="submit" value="$i18n.getText("com.mesilat.common.update")">
+            </div>
+        </div>
+
+        <div class="aui-message" style="display:none;"></div>
+    </form>
+    </p>
+
+    #if( !$spaceExists )
+    <p>
+    If you need demos and docs, you can import a <a href="$baseUrl/plugins/servlet/poi/demo-space-create">demo space</a>
+    into your Confluence instance to see the addon in action.
+    </p>
+    #else
+    <p>
+    If you need demos and dosc, you can navigate to <a href="$baseUrl/display/POIDD/POI+Forms+Addon">demo space</a>
+    in your Confluence instance to see the addon in action.
+    </p>
+    #end
+</body>
+</html>

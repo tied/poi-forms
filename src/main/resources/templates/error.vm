@@ -1,0 +1,5 @@
+#requireResourcesForContext("poi-forms")
+<div class="aui-message aui-message-error">
+<p class="title"><strong>$i18n.getText("com.mesilat.common.error")</strong></p>
+<p>$messageHtml</p>
+</div>

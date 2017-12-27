@@ -1,0 +1,42 @@
+.poi-table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+.poi-table td {
+    border: 1pt solid gray;
+}
+.poi-table  td:empty:before{
+   content: attr(placeholder);
+   display: block;
+   color:#aaa;
+}
+.poi-autocomplete {
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    min-width: 96px;
+    box-sizing: border-box;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    display:inline-block;
+}
+.poi-autocomplete > li {
+    position: relative;
+    padding: .2em .5em;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.poi-autocomplete > li:focus {
+    background: hsl(200, 40%, 80%);
+    color: black;
+    outline: none;
+}
