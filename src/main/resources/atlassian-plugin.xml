@@ -106,4 +106,19 @@
     <servlet key="config" class="com.mesilat.poi.web.DemoSpaceCreateServlet" name="Demo Space Create Servlet">
         <url-pattern>/poi/demo-space-create</url-pattern>
     </servlet>
+    
+    <component-import key="attachmentManager"     interface="com.atlassian.confluence.pages.AttachmentManager"/>
+    <component-import key="eventPublisher"        interface="com.atlassian.event.api.EventPublisher"/>
+    <component-import key="importExportManager"   interface="com.atlassian.confluence.importexport.ImportExportManager"/>
+    <component-import key="pageBuilderService"    interface="com.atlassian.webresource.api.assembler.PageBuilderService"/>
+    <component-import key="pageManager"           interface="com.atlassian.confluence.pages.PageManager"/>
+    <component-import key="permissionManager"     interface="com.atlassian.confluence.security.PermissionManager"/>
+    <component-import key="pluginSettingsFactory" interface="com.atlassian.sal.api.pluginsettings.PluginSettingsFactory"/>
+    <component-import key="resolver"              interface="com.atlassian.sal.api.message.I18nResolver"/>
+    <component-import key="settingsManager"       interface="com.atlassian.confluence.setup.settings.SettingsManager"/>
+    <component-import key="spaceManager"          interface="com.atlassian.confluence.spaces.SpaceManager"/>
+    <component-import key="transactionTemplate,"  interface="com.atlassian.sal.api.transaction.TransactionTemplate"/>
+    <component-import key="userAccessor"          interface="com.atlassian.confluence.user.UserAccessor"/>
+    <component-import key="userManager"           interface="com.atlassian.sal.api.user.UserManager"/>
+
 </atlassian-plugin>
