@@ -6,7 +6,6 @@ import com.atlassian.confluence.security.Permission;
 import com.atlassian.confluence.security.PermissionManager;
 import com.atlassian.confluence.user.UserAccessor;
 import com.atlassian.plugin.spring.scanner.annotation.component.Scanned;
-import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.atlassian.plugins.rest.common.security.AnonymousAllowed;
 import com.atlassian.sal.api.message.I18nResolver;
 import com.atlassian.sal.api.user.UserKey;
@@ -289,12 +288,14 @@ public class PoiResource extends ResourceBase {
     }
 
     @Autowired
-    public PoiResource(final @ComponentImport UserManager userManager,
-            final @ComponentImport I18nResolver resolver,
-            final @ComponentImport PageManager pageManager,
-            final @ComponentImport PermissionManager permissionManager,
-            final @ComponentImport UserAccessor userAccessor,
-            final WorkbookCache workbookCache) {
+    public PoiResource(
+            final UserManager userManager,
+            final I18nResolver resolver,
+            final PageManager pageManager,
+            final PermissionManager permissionManager,
+            final UserAccessor userAccessor,
+            final WorkbookCache workbookCache
+    ){
         super(userManager);
         this.resolver = resolver;
         this.pageManager = pageManager;

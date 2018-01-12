@@ -8,7 +8,6 @@ import com.atlassian.confluence.security.Permission;
 import com.atlassian.confluence.security.PermissionManager;
 import com.atlassian.confluence.user.AuthenticatedUserThreadLocal;
 import com.atlassian.plugin.spring.scanner.annotation.component.Scanned;
-import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.atlassian.sal.api.transaction.TransactionTemplate;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -107,10 +106,10 @@ public class AttachmentStorageService implements StorageService {
 
     @Autowired
     public AttachmentStorageService(
-            final @ComponentImport AttachmentManager attachmentManager,
-            final @ComponentImport TransactionTemplate transactionTemplate,
-            final @ComponentImport PageManager pageManager,
-            final @ComponentImport PermissionManager permissionManager
+            final AttachmentManager attachmentManager,
+            final TransactionTemplate transactionTemplate,
+            final PageManager pageManager,
+            final PermissionManager permissionManager
     ){
         this.attachmentManager = attachmentManager;
         this.transactionTemplate = transactionTemplate;

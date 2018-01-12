@@ -1,7 +1,6 @@
 package com.mesilat.poi;
 
 import com.atlassian.plugin.spring.scanner.annotation.component.Scanned;
-import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.atlassian.sal.api.pluginsettings.PluginSettings;
 import com.atlassian.sal.api.pluginsettings.PluginSettingsFactory;
 import com.atlassian.sal.api.transaction.TransactionCallback;
@@ -98,8 +97,10 @@ public class ReferenceDataServiceImpl implements ReferenceDataService, Initializ
     }
 
     @Autowired
-    public ReferenceDataServiceImpl(final @ComponentImport PluginSettingsFactory pluginSettingsFactory,
-            final @ComponentImport TransactionTemplate transactionTemplate) {
+    public ReferenceDataServiceImpl(
+            final PluginSettingsFactory pluginSettingsFactory,
+            final TransactionTemplate transactionTemplate
+    ){
         this.pluginSettingsFactory = pluginSettingsFactory;
         this.transactionTemplate = transactionTemplate;
     }

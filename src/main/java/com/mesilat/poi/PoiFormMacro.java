@@ -5,7 +5,6 @@ import com.atlassian.confluence.macro.Macro;
 import com.atlassian.confluence.macro.MacroExecutionException;
 import com.atlassian.confluence.util.velocity.VelocityUtils;
 import com.atlassian.plugin.spring.scanner.annotation.component.Scanned;
-import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.atlassian.sal.api.message.I18nResolver;
 import com.atlassian.webresource.api.assembler.PageBuilderService;
 import java.util.HashMap;
@@ -54,8 +53,8 @@ public class PoiFormMacro implements Macro {
 
     @Inject
     public PoiFormMacro(
-        final @ComponentImport I18nResolver resolver,
-        final @ComponentImport PageBuilderService pageBuilderService
+        final I18nResolver resolver,
+        final PageBuilderService pageBuilderService
     ){
         this.resolver = resolver;
         this.pageBuilderService = pageBuilderService;

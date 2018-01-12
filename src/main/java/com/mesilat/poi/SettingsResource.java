@@ -1,7 +1,6 @@
 package com.mesilat.poi;
 
 import com.atlassian.plugin.spring.scanner.annotation.component.Scanned;
-import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.atlassian.sal.api.message.I18nResolver;
 import com.atlassian.sal.api.pluginsettings.PluginSettings;
 import com.atlassian.sal.api.pluginsettings.PluginSettingsFactory;
@@ -74,10 +73,10 @@ public class SettingsResource extends ResourceBase {
 
     @Autowired
     public SettingsResource(
-            final @ComponentImport UserManager userManager,
-            final @ComponentImport PluginSettingsFactory pluginSettingsFactory,
-            final @ComponentImport TransactionTemplate transactionTemplate,
-            final @ComponentImport I18nResolver resolver,
+            final UserManager userManager,
+            final PluginSettingsFactory pluginSettingsFactory,
+            final TransactionTemplate transactionTemplate,
+            final I18nResolver resolver,
             final WorkbookCache workbookCache
     ){
         super(userManager);

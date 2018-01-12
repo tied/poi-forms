@@ -11,7 +11,6 @@ import com.atlassian.confluence.pages.PageManager;
 import com.atlassian.event.api.EventListener;
 import com.atlassian.event.api.EventPublisher;
 import com.atlassian.plugin.spring.scanner.annotation.component.Scanned;
-import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import java.util.HashMap;
 import java.util.Map;
 import javax.inject.Named;
@@ -169,8 +168,8 @@ public class JavascriptCacheImpl implements JavascriptCache, InitializingBean, D
 
     @Autowired
     public JavascriptCacheImpl(
-        final @ComponentImport PageManager pageManager,
-        final @ComponentImport EventPublisher eventPublisher)
+        final PageManager pageManager,
+        final EventPublisher eventPublisher)
     {
         this.pageManager = pageManager;
         this.eventPublisher = eventPublisher;

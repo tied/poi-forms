@@ -8,13 +8,11 @@ import com.atlassian.confluence.security.Permission;
 import com.atlassian.confluence.security.PermissionManager;
 import com.atlassian.confluence.user.AuthenticatedUserThreadLocal;
 import com.atlassian.plugin.spring.scanner.annotation.component.Scanned;
-import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.atlassian.sal.api.message.I18nResolver;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.logging.Level;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -77,11 +75,11 @@ public class SampleWorkbookResource {
 
     @Inject
     public SampleWorkbookResource(
-            final @ComponentImport I18nResolver resolver,
-            final @ComponentImport PermissionManager permissionManager,
-            final @ComponentImport PageManager pageManager,
-            final @ComponentImport AttachmentManager attachmentManager
-    ) {
+            final I18nResolver resolver,
+            final PermissionManager permissionManager,
+            final PageManager pageManager,
+            final AttachmentManager attachmentManager
+    ){
         this.resolver = resolver;
         this.permissionManager = permissionManager;
         this.pageManager = pageManager;

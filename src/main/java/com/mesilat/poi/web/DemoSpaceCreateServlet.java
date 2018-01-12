@@ -14,7 +14,6 @@ import com.atlassian.confluence.spaces.SpaceManager;
 import com.atlassian.confluence.user.AuthenticatedUserThreadLocal;
 import com.atlassian.confluence.user.ConfluenceUser;
 import com.atlassian.plugin.spring.scanner.annotation.component.Scanned;
-import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.google.common.io.ByteStreams;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -110,10 +109,10 @@ public class DemoSpaceCreateServlet extends HttpServlet {
 
     @Inject
     public DemoSpaceCreateServlet(
-        final @ComponentImport PermissionManager permissionManager,
-        final @ComponentImport SpaceManager spaceManager,
-        final @ComponentImport ImportExportManager importExportManager,
-        final @ComponentImport SettingsManager settingsManager
+        final PermissionManager permissionManager,
+        final SpaceManager spaceManager,
+        final ImportExportManager importExportManager,
+        final SettingsManager settingsManager
     ){
         this.permissionManager = permissionManager;
         this.spaceManager = spaceManager;

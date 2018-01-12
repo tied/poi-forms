@@ -4,7 +4,6 @@ import com.atlassian.confluence.pages.Page;
 import com.atlassian.confluence.pages.PageManager;
 import com.atlassian.confluence.security.PermissionManager;
 import com.atlassian.plugin.spring.scanner.annotation.component.Scanned;
-import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.atlassian.plugins.rest.common.security.AnonymousAllowed;
 import java.io.IOException;
 import java.util.List;
@@ -60,8 +59,8 @@ public class ReferenceDataResource implements Constants {
     }
 
     public ReferenceDataResource(
-            final @ComponentImport PermissionManager permissionManager,
-            final @ComponentImport PageManager pageManager,
+            final PermissionManager permissionManager,
+            final PageManager pageManager,
             final WorkbookCache workbookCache
     ){
         this.permissionManager = permissionManager;

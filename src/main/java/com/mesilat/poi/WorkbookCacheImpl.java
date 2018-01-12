@@ -7,7 +7,6 @@ import com.atlassian.confluence.event.events.content.page.PageUpdateEvent;
 import com.atlassian.event.api.EventListener;
 import com.atlassian.event.api.EventPublisher;
 import com.atlassian.plugin.spring.scanner.annotation.component.Scanned;
-import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.atlassian.sal.api.pluginsettings.PluginSettingsFactory;
 import com.mesilat.jmx.SimpleMBean;
 import com.mesilat.poi.JavascriptCache.MacroInfo;
@@ -248,8 +247,8 @@ public class WorkbookCacheImpl extends SimpleMBean implements WorkbookCache, Ini
     public WorkbookCacheImpl(
         final StorageService storageService,
         final JavascriptCache javascriptCache,
-        final @ComponentImport EventPublisher eventPublisher,
-        final @ComponentImport PluginSettingsFactory pluginSettingsFactory
+        final EventPublisher eventPublisher,
+        final PluginSettingsFactory pluginSettingsFactory
     ) throws NotCompliantMBeanException{
         super(WorkbookCacheMBean.class);
 
